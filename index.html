@@ -103,9 +103,17 @@
                         <span class="text-xs font-semibold text-gray-400">Bash</span>
                         <button class="copy-btn text-xs text-gray-400 hover:text-white transition">Copy</button>
                     </div>
-                    <pre class="p-4 text-sm overflow-x-auto"><code class="language-bash">pip install -r requirements.txt
-cd ./PlantSketch3D
+                    <pre class="p-4 text-sm overflow-x-auto"><code class="language-bash">cd PlantSketch3D
 npm install
+cd ..
+pip install -r requirements.txt
+source .venv/bin/activate
+
+cd PlantSketch3D
+npm run build
+cd ..
+
+bash run.sh
 cd ..</code></pre>
                 </div>
 
