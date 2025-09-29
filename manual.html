@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlantSketch User Manual</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111827; /* bg-gray-900 */
+            color: #d1d5db; /* text-gray-300 */
+        }
+        section[id] {
+            scroll-margin-top: 5rem; /* Offset for the sticky nav bar */
+        }
+        .section-card {
+            background-color: #1f2937; /* bg-gray-800 */
+            border: 1px solid #374151; /* border-gray-700 */
+        }
+        .code-block {
+            background-color: #0d1117; /* A darker gray */
+            border: 1px solid #30363d;
+        }
+        .table-container {
+            border: 1px solid #374151;
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+        table {
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+        th, td {
+            border-bottom: 1px solid #374151; /* border-gray-700 */
+        }
+        thead th {
+            background-color: #374151; /* bg-gray-700 */
+        }
+        tbody tr:nth-child(even) {
+            background-color: #1f2937; /* bg-gray-800 */
+        }
+        tbody tr:nth-child(odd) {
+            background-color: #263142; /* Slightly different shade */
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1f2937;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4b5563;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6b7280;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+
+        <header class="text-center mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-cyan-500">PlantSketch</span>
+            </h1>
+            <p class="mt-4 text-xl text-gray-400">User Manual</p>
+        </header>
+
+        <nav class="sticky top-4 z-10 bg-gray-900 bg-opacity-80 backdrop-blur-md rounded-full border border-gray-700/60 px-6 py-3 mb-12">
+             <ul class="flex items-center justify-center space-x-4 sm:space-x-8 text-sm sm:text-base font-medium text-gray-300">
+                <li><a href="#getting-started" class="hover:text-emerald-400 transition-colors">Getting Started</a></li>
+                <li><a href="#loading-data" class="hover:text-emerald-400 transition-colors">Loading Data</a></li>
+                <li><a href="#authoring" class="hover:text-emerald-400 transition-colors">Authoring</a></li>
+                <li><a href="#visualisation" class="hover:text-emerald-400 transition-colors">3D Visualisation</a></li>
+            </ul>
+        </nav>
+
+        <main class="space-y-16">
+            <!-- Section: Getting Started -->
+            <section id="getting-started" class="section-card rounded-xl p-6 sm:p-8 shadow-2xl shadow-gray-950/50">
+                <h2 class="text-2xl font-bold text-white mb-6 border-l-4 border-emerald-400 pl-4">Getting Started</h2>
+                <p class="mb-6 text-gray-400">To run the app, you first need to install the dependencies. Make sure you have <code class="bg-gray-700 text-emerald-300 px-1 py-0.5 rounded text-sm">python3</code> and <code class="bg-gray-700 text-emerald-300 px-1 py-0.5 rounded text-sm">Node.js</code> installed, then run the installation script:</p>
+                <div class="code-block rounded-lg mb-6">
+                    <div class="flex justify-between items-center px-4 py-2 border-b border-gray-700">
+                        <span class="text-xs font-semibold text-gray-400">Bash</span>
+                        <button class="copy-btn text-xs text-gray-400 hover:text-white transition">Copy</button>
+                    </div>
+                    <pre class="p-4 text-sm overflow-x-auto"><code class="language-bash">bash install.sh</code></pre>
+                </div>
+                <p class="mb-6 text-gray-400">The script will execute the following commands:</p>
+                 <div class="code-block rounded-lg mb-6">
+                    <div class="flex justify-between items-center px-4 py-2 border-b border-gray-700">
+                        <span class="text-xs font-semibold text-gray-400">Bash</span>
+                        <button class="copy-btn text-xs text-gray-400 hover:text-white transition">Copy</button>
+                    </div>
+                    <pre class="p-4 text-sm overflow-x-auto"><code class="language-bash">pip install -r requirements.txt
+cd ./PlantSketch3D
+npm install
+cd ..</code></pre>
+                </div>
+
+                <p class="mb-4 text-gray-400">PlantSketch can now be run with:</p>
+                <div class="code-block rounded-lg">
+                    <div class="flex justify-between items-center px-4 py-2 border-b border-gray-700">
+                        <span class="text-xs font-semibold text-gray-400">Bash</span>
+                        <button class="copy-btn text-xs text-gray-400 hover:text-white transition">Copy</button>
+                    </div>
+                    <pre class="p-4 text-sm overflow-x-auto"><code class="language-bash">python main.py</code></pre>
+                </div>
+            </section>
+
+            <!-- Section: Loading Data -->
+            <section id="loading-data" class="section-card rounded-xl p-6 sm:p-8 shadow-2xl shadow-gray-950/50">
+                <h2 class="text-2xl font-bold text-white mb-6 border-l-4 border-emerald-400 pl-4">Loading Data</h2>
+                <p class="mb-6 text-gray-400">When PlantSketch first starts, the user interface will be empty. To generate plants, you must first load landscape data from a folder.</p>
+                
+                <figure class="mb-8 rounded-lg overflow-hidden border border-gray-700">
+                    <img src="image1.png" alt="Initial user interface of PlantSketch" class="w-full">
+                    <figcaption class="text-center text-xs text-gray-500 p-2 bg-gray-900">Fig 1: The initial user interface.</figcaption>
+                </figure>
+
+                <p class="mb-4 text-gray-400">The data folder must contain the following files:</p>
+                <figure class="mb-8 rounded-lg overflow-hidden border border-gray-700">
+                    <img src="image2.png" alt="Required file structure for landscape data" class="w-full bg-white p-4">
+                    <figcaption class="text-center text-xs text-gray-500 p-2 bg-gray-900">Fig 2: Required file structure.</figcaption>
+                </figure>
+                
+                <ul class="list-disc list-inside space-y-2 mb-6 text-gray-400">
+                    <li><code class="bg-gray-700 text-emerald-300 px-1 py-0.5 rounded text-sm">.txt</code> files: Contain abiotic data for moisture, temperature, sunlight, and climate.</li>
+                    <li><code class="bg-gray-700 text-emerald-300 px-1 py-0.5 rounded text-sm">.elv</code> file: Contains the elevation data of the terrain.</li>
+                    <li><code class="bg-gray-700 text-emerald-300 px-1 py-0.5 rounded text-sm">.xlsx</code> file: A spreadsheet containing the plant species data.</li>
+                </ul>
+
+                <h3 class="text-lg font-semibold text-white mb-4">Species Data Format</h3>
+                <div class="table-container mb-8">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-xs text-left text-gray-300">
+                            <thead class="text-xs text-gray-200 uppercase">
+                                <tr>
+                                    <th class="px-4 py-2">common name</th><th class="px-4 py-2">scientific name</th><th class="px-4 py-2">type</th><th class="px-4 py-2">mnemonic</th><th class="px-4 py-2">form</th><th class="px-4 py-2">lifespan (t_m)</th><th class="px-4 py-2">max height (h_m) open</th><th class="px-4 py-2">max height (h_m) closed</th><th class="px-4 py-2">q</th><th class="px-4 py-2">radius mult. open</th><th class="px-4 py-2">radius mult. closed</th><th class="px-4 py-2">leaf transp. (alpha)</th><th class="px-4 py-2">moisture absorption</th><th class="px-4 py-2">sun c</th><th class="px-4 py-2">sun r</th><th class="px-4 py-2">moisture c</th><th class="px-4 py-2">moisture r</th><th class="px-4 py-2">temp c</th><th class="px-4 py-2">temp r</th><th class="px-4 py-2">slope c</th><th class="px-4 py-2">slope r</th><th class="px-4 py-2">growth period</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-700">
+                                <tr>
+                                    <td class="px-4 py-2">Boxwood</td><td class="px-4 py-2">Buxus sempervirens</td><td class="px-4 py-2">Broad-leaved Evergreen</td><td class="px-4 py-2">buse</td><td class="px-4 py-2">Shrub/Tree</td><td class="px-4 py-2">300</td><td class="px-4 py-2">9</td><td class="px-4 py-2">9</td><td class="px-4 py-2">-5</td><td class="px-4 py-2">0.42</td><td class="px-4 py-2">0.42</td><td class="px-4 py-2">0.70</td><td class="px-4 py-2">15</td><td class="px-4 py-2">3.75</td><td class="px-4 py-2">4.25</td><td class="px-4 py-2">27.5</td><td class="px-4 py-2">12.5</td><td class="px-4 py-2">11.75</td><td class="px-4 py-2">23.35</td><td class="px-4 py-2">0</td><td class="px-4 py-2">80</td><td class="px-4 py-2">L</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-2">Snowy Mespilus</td><td class="px-4 py-2">Amelanchier ovalis</td><td class="px-4 py-2">Deciduous</td><td class="px-4 py-2">amov</td><td class="px-4 py-2">Shrub</td><td class="px-4 py-2">50</td><td class="px-4 py-2">6</td><td class="px-4 py-2">6</td><td class="px-4 py-2">-4</td><td class="px-4 py-2">0.41</td><td class="px-4 py-2">0.17</td><td class="px-4 py-2">0.52</td><td class="px-4 py-2">22</td><td class="px-4 py-2">7</td><td class="px-4 py-2">5</td><td class="px-4 py-2">31</td><td class="px-4 py-2">9</td><td class="px-4 py-2">19.25</td><td class="px-4 py-2">15.75</td><td class="px-4 py-2">0</td><td class="px-4 py-2">80</td><td class="px-4 py-2">S</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-2">Mountain Pine</td><td class="px-4 py-2">Pinus uncinata</td><td class="px-4 py-2">Evergreen, treeline species</td><td class="px-4 py-2">pimu</td><td class="px-4 py-2">Tree</td><td class="px-4 py-2">400</td><td class="px-4 py-2">15</td><td class="px-4 py-2">20</td><td class="px-4 py-2">-4</td><td class="px-4 py-2">0.16</td><td class="px-4 py-2">0.14</td><td class="px-4 py-2">0.43</td><td class="px-4 py-2">3</td><td class="px-4 py-2">7</td><td class="px-4 py-2">5</td><td class="px-4 py-2">21.5</td><td class="px-4 py-2">18.5</td><td class="px-4 py-2">11.75</td><td class="px-4 py-2">23.25</td><td class="px-4 py-2">0</td><td class="px-4 py-2">80</td><td class="px-4 py-2">L</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <p class="mb-6 text-gray-400">Once data is loaded, a biologically plausible landscape is generated automatically.</p>
+                <figure class="rounded-lg overflow-hidden border border-gray-700">
+                    <img src="image3.png" alt="Landscape generated after loading data" class="w-full">
+                    <figcaption class="text-center text-xs text-gray-500 p-2 bg-gray-900">Fig 3: Landscape generated with elevation map view.</figcaption>
+                </figure>
+            </section>
+            
+            <!-- Section: Authoring -->
+            <section id="authoring" class="section-card rounded-xl p-6 sm:p-8 shadow-2xl shadow-gray-950/50">
+                <h2 class="text-2xl font-bold text-white mb-6 border-l-4 border-emerald-400 pl-4">Authoring the Landscape</h2>
+                
+                <h3 class="text-lg font-semibold text-white mb-4">Interpretation</h3>
+                <p class="mb-4 text-gray-400">Each circle on the map symbolically represents a plant. Different species are differentiated by color. Clicking on a circle displays that plant's parameters in the right panel.</p>
+                <p class="mb-6 text-gray-400">You can visualize various abiotic factors via the "Display Options" panel. The default view shows nothing, but you can switch to other abiotic factors like temperature.</p>
+                 <figure class="mb-8 rounded-lg overflow-hidden border border-gray-700">
+                    <img src="image4.png" alt="Visualisation of the temperature map" class="w-full">
+                    <figcaption class="text-center text-xs text-gray-500 p-2 bg-gray-900">Fig 4: Temperature map visualization.</figcaption>
+                </figure>
+
+                <h3 class="text-lg font-semibold text-white mb-4">Brush Tool</h3>
+                <p class="mb-4 text-gray-400">PlantSketch gives you granular control over the landscape with its brush tools. To begin painting, toggle on the “Adjust Parameters via Painting” switch. You can adjust the brush size and toggle plant visibility to make authoring abiotic factors easier.</p>
+                <p class="mb-6 text-gray-400">There are four brush types, each with unique settings in its own tab:</p>
+                <ul class="space-y-4 text-gray-400 list-disc list-inside">
+                    <li><strong>Viability Brush:</strong> Select a species and paint to change its viability (how likely it is to grow). The painted area will be resampled, generating new plants based on the changed viabilities.</li>
+                    <li><strong>Abiotic Brush:</strong> Choose an abiotic factor (like temperature or moisture) and paint new values onto the landscape. The affected area will then be resampled based on these new environmental conditions.</li>
+                    <li><strong>Age Brush:</strong> Paint to increase or decrease the age of existing plants. This will directly affect their height and radius in the visualization.</li>
+                    <li><strong>Kill Brush:</strong> Select a species to remove with the brush. Plants of the selected species will be obliterated from the painted area.</li>
+                </ul>
+
+                <h3 class="text-lg font-semibold text-white mt-8 mb-4">Tuning Species Parameters</h3>
+                <p class="text-gray-400">Each species has preferred abiotic conditions. Using the left panel, you can tune the ideal value (<code class="bg-gray-700 text-emerald-300 px-1 py-0.5 rounded text-sm">c</code>) and tolerance range (<code class="bg-gray-700 text-emerald-300 px-1 py-0.5 rounded text-sm">r</code>) for each abiotic factor for every species.</p>
+            </section>
+            
+            <!-- Section: 3D Visualisation -->
+            <section id="visualisation" class="section-card rounded-xl p-6 sm:p-8 shadow-2xl shadow-gray-950/50">
+                <h2 class="text-2xl font-bold text-white mb-6 border-l-4 border-emerald-400 pl-4">3D Visualisation</h2>
+                <p class="mb-6 text-gray-400">The generated landscape can be visualized in two ways: export the data as a <code class="bg-gray-700 text-emerald-300 px-1 py-0.5 rounded text-sm">.pdb</code> file for use in external software, or use the built-in WebGL application.</p>
+                <p class="mb-6 text-gray-400">Access the 3D view via the "3D Visualisation" tab at the top of the page.</p>
+                
+                <figure class="mb-8 rounded-lg overflow-hidden border border-gray-700">
+                    <img src="image5.png" alt="Initial interface for 3D Visualisation" class="w-full">
+                    <figcaption class="text-center text-xs text-gray-500 p-2 bg-gray-900">Fig 5: The initial 3D Visualisation interface.</figcaption>
+                </figure>
+
+                <p class="mb-6 text-gray-400">To render the terrain, simply click "Reload Data" and the 3D model will be generated automatically.</p>
+
+                <figure class="rounded-lg overflow-hidden border border-gray-700">
+                    <img src="image6.png" alt="Rendered 3D visualisation of the landscape" class="w-full">
+                    <figcaption class="text-center text-xs text-gray-500 p-2 bg-gray-900">Fig 6: The rendered 3D landscape.</figcaption>
+                </figure>
+            </section>
+        </main>
+
+        <footer class="text-center mt-16 text-gray-500 text-sm">
+            <p>PlantSketch User Manual</p>
+        </footer>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Smooth scrolling for navigation links is handled by CSS `scroll-behavior: smooth;`
+
+            // Copy to clipboard functionality
+            const allCopyButtons = document.querySelectorAll('.copy-btn');
+            allCopyButtons.forEach(button => {
+                button.addEventListener('click', (event) => {
+                    const codeBlock = event.target.closest('.code-block');
+                    const code = codeBlock.querySelector('code').innerText;
+                    
+                    const textarea = document.createElement('textarea');
+                    textarea.value = code;
+                    document.body.appendChild(textarea);
+                    textarea.select();
+                    try {
+                        document.execCommand('copy');
+                        event.target.textContent = 'Copied!';
+                    } catch (err) {
+                        event.target.textContent = 'Failed!';
+                        console.error('Failed to copy text: ', err);
+                    }
+                    document.body.removeChild(textarea);
+
+                    setTimeout(() => {
+                        event.target.textContent = 'Copy';
+                    }, 2000);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
